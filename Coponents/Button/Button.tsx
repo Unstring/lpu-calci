@@ -2,7 +2,11 @@ import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import NumberButton from './DifferentButtonTypes/NumberButton';
 import ClearButton from './DifferentButtonTypes/ClearButton';
-import BackSpaceButton from "../../ignore/BackSpaceButton";
+import BackSpaceButton from './DifferentButtonTypes/BackSpaceButton';
+import SignButton from './DifferentButtonTypes/SignButton';
+import DecimalButton from './DifferentButtonTypes/DecimalButton';
+import BracketButton from './DifferentButtonTypes/BracketButton';
+import EqualsButton from './DifferentButtonTypes/EqualButton';
 
 function Button({
   setAppendScreenText,
@@ -13,12 +17,15 @@ function Button({
 }): JSX.Element {
   return (
     <View style={styles.Container}>
-      <ClearButton char={'ac'} action={setScreenText} />
-      <NumberButton
+      <ClearButton
+        char={'ac'}
+        action={setScreenText}
+        //
+      />
+      <BracketButton
         char={'()'}
-        action={setAppendScreenText}
-        setCheckState={setCheckState}
-        checkState={checkState}
+        action={setScreenText}
+        screenText={screenText}
       />
       <NumberButton
         char={'%'}
@@ -26,12 +33,7 @@ function Button({
         setCheckState={setCheckState}
         checkState={checkState}
       />
-      <NumberButton
-        char={'÷'}
-        action={setAppendScreenText}
-        setCheckState={setCheckState}
-        checkState={checkState}
-      />
+      <SignButton char={'÷'} action={setScreenText} screenText={screenText} />
       <NumberButton
         char={'7'}
         action={setAppendScreenText}
@@ -50,12 +52,7 @@ function Button({
         setCheckState={setCheckState}
         checkState={checkState}
       />
-      <NumberButton
-        char={'×'}
-        action={setAppendScreenText}
-        setCheckState={setCheckState}
-        checkState={checkState}
-      />
+      <SignButton char={'×'} action={setScreenText} screenText={screenText} />
       <NumberButton
         char={'4'}
         action={setAppendScreenText}
@@ -74,12 +71,7 @@ function Button({
         setCheckState={setCheckState}
         checkState={checkState}
       />
-      <NumberButton
-        char={'-'}
-        action={setAppendScreenText}
-        setCheckState={setCheckState}
-        checkState={checkState}
-      />
+      <SignButton char={'-'} action={setScreenText} screenText={screenText} />
       <NumberButton
         char={'1'}
         action={setAppendScreenText}
@@ -98,35 +90,24 @@ function Button({
         setCheckState={setCheckState}
         checkState={checkState}
       />
-      <NumberButton
-        char={'+'}
-        action={setAppendScreenText}
-        setCheckState={setCheckState}
-        checkState={checkState}
-      />
+      <SignButton char={'+'} action={setScreenText} screenText={screenText} />
       <NumberButton
         char={'0'}
         action={setAppendScreenText}
         setCheckState={setCheckState}
         checkState={checkState}
       />
-      <NumberButton
+      <DecimalButton
         char={'.'}
-        action={setAppendScreenText}
-        setCheckState={setCheckState}
-        checkState={checkState}
+        action={setScreenText}
+        screenText={screenText}
       />
       <BackSpaceButton
         char={'<-'}
         action={setScreenText}
         screenText={screenText}
       />
-      <NumberButton
-        char={'='}
-        action={setAppendScreenText}
-        setCheckState={setCheckState}
-        checkState={checkState}
-      />
+      <EqualsButton char={'='} action={setScreenText} screenText={screenText} />
     </View>
   );
 }
